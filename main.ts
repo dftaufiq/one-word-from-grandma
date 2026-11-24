@@ -12,6 +12,9 @@
 // Gate (RULES.txt): /output/entry.txt must be UTF-8 text of 1-30
 // characters, not only whitespace. "Al" is 2 bytes, no trailing newline:
 // the tie-break is bytes, lower wins, so nothing extra is written.
+//
+// Note: writeFileSync with "utf8" writes the string exactly as-is, so the
+// file holds precisely the two bytes "Al" — no newline is ever appended.
 import { mkdirSync, writeFileSync } from "node:fs";
 
 const WORD = "Al";
